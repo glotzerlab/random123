@@ -37,7 +37,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "features/compilerfeatures.h"
 #include "array.h"
 
-
+namespace r123 {
 /*
 // Macros _Foo_tpl are code generation 'templates'  They define
 // inline functions with names obtained by mangling Foo and the
@@ -361,7 +361,6 @@ _philoxNxW_tpl(4, 2, 64, uint64_t)    /* philox4x64bijection */
 /** \cond HIDDEN_FROM_DOXYGEN */
 
 #define _PhiloxNxW_base_tpl(CType, KType, N, W)                         \
-namespace r123{                                                          \
 template<unsigned int ROUNDS>                                             \
 struct Philox##N##x##W##_R{                                             \
     typedef CType ctr_type;                                         \
@@ -374,7 +373,6 @@ struct Philox##N##x##W##_R{                                             \
     }                                                                   \
 };                                                                      \
 typedef Philox##N##x##W##_R<philox##N##x##W##_rounds> Philox##N##x##W; \
- } // namespace r123
 /** \endcond */
 
 _PhiloxNxW_base_tpl(r123array2x32, r123array1x32, 2, 32) // Philox2x32_R<R>
@@ -383,6 +381,7 @@ _PhiloxNxW_base_tpl(r123array4x32, r123array2x32, 4, 32) // Philox4x32_R<R>
 _PhiloxNxW_base_tpl(r123array2x64, r123array1x64, 2, 64) // Philox2x64_R<R>
 _PhiloxNxW_base_tpl(r123array4x64, r123array2x64, 4, 64) // Philox4x64_R<R>
 #endif
+ } // namespace r123
 
 /* The _tpl macros don't quite work to do string-pasting inside comments.
    so we just write out the boilerplate documentation four times... */
