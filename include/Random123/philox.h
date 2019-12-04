@@ -366,7 +366,13 @@ _philoxNxW_tpl(4, 2, 64, uint64_t)    /* philox4x64bijection */
 #define philox4x64(c,k) philox4x64_R(philox4x64_rounds, c, k)
 #endif /* R123_USE_PHILOX_64BIT */
 
-#if defined(__cplusplus) 
+#if defined(__cplusplus)
+
+#if R123_USE_STD_HEADERS
+#include <stdexcept>
+#endif
+
+/** \cond HIDDEN_FROM_DOXYGEN */
 
 #define _PhiloxNxW_base_tpl(CType, KType, N, W)                         \
 template<unsigned int ROUNDS>                                             \
