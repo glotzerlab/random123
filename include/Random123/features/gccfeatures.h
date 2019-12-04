@@ -275,7 +275,11 @@ static inline unsigned int __mulhwu(unsigned int a, unsigned int b) {
 #ifndef __STDC_CONSTANT_MACROS
 #define __STDC_CONSTANT_MACROS
 #endif
+
+#ifndef __CUDACC_RTC__
 #include <stdint.h>
+#endif
+
 #ifndef UINT64_C
 #error UINT64_C not defined.  You must define __STDC_CONSTANT_MACROS before you #include <stdint.h>
 #endif
