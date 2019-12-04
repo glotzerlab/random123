@@ -356,7 +356,10 @@ _philoxNxW_tpl(4, 2, 64, uint64_t)    /* philox4x64bijection */
 #endif /* R123_USE_PHILOX_64BIT */
 
 #ifdef __cplusplus
+
+#if R123_USE_STD_HEADERS
 #include <stdexcept>
+#endif
 
 /** \cond HIDDEN_FROM_DOXYGEN */
 
