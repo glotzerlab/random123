@@ -219,7 +219,11 @@ added to each of the *features.h files, AND to examples/ut_features.cpp.
 #endif
 
 #ifndef R123_USE_STD_HEADERS
-#define R123_USE_STD_HEADERS (defined(__cplusplus))
+#ifdef __cplusplus
+#define R123_USE_STD_HEADERS 1
+#else
+#define R123_USE_STD_HEADERS 0
+#endif
 #endif
 
 #ifndef R123_USE_CXX11
