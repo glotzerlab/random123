@@ -32,6 +32,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef __r123_nvcc_features_dot_h__
 #define __r123_nvcc_features_dot_h__
 
+#if !defined(__HIPCC__)
 #if !defined(CUDART_VERSION)
 #error "why are we in nvccfeatures.h if CUDART_VERSION is not defined"
 #endif
@@ -49,6 +50,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // please take extra care to be sure that you are getting correct
 // results.
 #endif
+#endif
 
 // nvcc falls through to gcc or msvc.  So first define
 // a couple of things and then include either gccfeatures.h
@@ -57,7 +59,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //#ifdef  __CUDA_ARCH__ allows Philox32 and Philox64 to be compiled
 //for both device and host functions in CUDA by setting compiler flags
 //for the device function
-#ifdef  __CUDA_ARCH__
+#if defined(__CUDA_ARCH__) || defined(__HIPCC__)
 #ifndef R123_CUDA_DEVICE
 #define R123_CUDA_DEVICE __device__
 #endif
@@ -116,13 +118,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define R123_ULONG_LONG unsigned long long
 #endif
 
-#if defined(__GNUC__)
-#include "gccfeatures.h"
-#elif defined(__CUDACC_RTC__)
-
 #ifndef R123_USE_STD_HEADERS
+// never incude STL headers as they don't have __device__ attributes
 #define R123_USE_STD_HEADERS 0
 #endif
+
+#if defined(__GNUC__)
+#include "clangfeatures.h"
+#elif defined(__GNUC__)
+#include "gccfeatures.h"
+#elif defined(__CUDACC_RTC__)
 
 #ifndef UINT64_C
 #  define UINT64_C(c)   c ## UL

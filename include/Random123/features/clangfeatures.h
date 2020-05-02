@@ -88,6 +88,10 @@ _Pragma("clang diagnostic pop")
 #endif
 #endif
 
+#ifndef R123_FORCE_INLINE
+#define R123_FORCE_INLINE(decl) decl __attribute__((always_inline))
+#endif
+
 #include "gccfeatures.h"
 
 #endif
