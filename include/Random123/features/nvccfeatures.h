@@ -123,7 +123,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define R123_USE_STD_HEADERS 0
 #endif
 
-#if defined(__GNUC__)
+#if defined(__clang__)
 #include "clangfeatures.h"
 #elif defined(__GNUC__)
 #include "gccfeatures.h"
