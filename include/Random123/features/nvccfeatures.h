@@ -123,16 +123,15 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define R123_USE_STD_HEADERS 0
 #endif
 
-#if defined(__clang__)
-#include "clangfeatures.h"
-#elif defined(__GNUC__)
-#include "gccfeatures.h"
-#elif defined(__CUDACC_RTC__)
-
+#if defined(__CUDACC_RTC__)
 #ifndef UINT64_C
 #  define UINT64_C(c)   c ## UL
 #endif
+#endif
 
+#if defined(__clang__)
+#include "clangfeatures.h"
+#elif defined(__GNUC__)
 #include "gccfeatures.h"
 #elif defined(_MSC_FULL_VER)
 #include "msvcfeatures.h"
