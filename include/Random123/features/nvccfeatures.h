@@ -127,7 +127,16 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef UINT64_C
 #  define UINT64_C(c)   c ## UL
 #endif
+
+#ifndef R123_STATIC_INLINE
+#define R123_STATIC_INLINE static __inline__
 #endif
+
+#ifndef R123_FORCE_INLINE
+#define R123_FORCE_INLINE(decl) decl
+#endif
+
+#endif // __CUDACC_RTC__
 
 #if defined(__clang__)
 #include "clangfeatures.h"

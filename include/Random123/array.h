@@ -33,6 +33,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define _r123array_dot_h__
 #include "features/compilerfeatures.h"
 #include "features/sse.h"
+#include <cstdint>
 
 #if !R123_USE_STD_HEADERS
 #define CXXMETHODS(_N, W, T)
