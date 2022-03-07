@@ -319,7 +319,7 @@ CXXOVERLOADS(_N, W, T)
 
 #if defined(__CUDACC__)
 /* Disable complaints from CUDA8 and C++ */
-#pragma diag_suppress = code_is_unreachable
+#pragma nv_diag_suppress = code_is_unreachable
 #endif
 _r123array_tpl(1, 32, uint32_t)  /* r123array1x32 */
 _r123array_tpl(2, 32, uint32_t)  /* r123array2x32 */
@@ -332,7 +332,7 @@ _r123array_tpl(2, 64, uint64_t)  /* r123array2x64 */
 _r123array_tpl(4, 64, uint64_t)  /* r123array4x64 */
 #endif
 #if defined(__CUDACC__)
-#pragma diag_default = code_is_unreachable
+#pragma nv_diag_default = code_is_unreachable
 #endif
 
 _r123array_tpl(16, 8, uint8_t)  /* r123array16x8 for ARSsw, AESsw */
