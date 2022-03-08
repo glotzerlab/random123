@@ -122,18 +122,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "xlcfeatures.h"
 #elif defined(__GNUC__)
 #include "gccfeatures.h"
-#elif defined(__CUDACC_RTC__)
-
-#ifndef R123_USE_STD_HEADERS
-#define R123_USE_STD_HEADERS 0
-#endif
-
-#ifndef UINT64_C
-#  define UINT64_C(c)   c ## UL
-#endif
-
-#include "gccfeatures.h"
 #elif defined(_MSC_FULL_VER)
 #include "msvcfeatures.h"
 #endif
+
 #endif

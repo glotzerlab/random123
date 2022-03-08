@@ -34,7 +34,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "features/compilerfeatures.h"
 #include "features/sse.h"
 
-#if !R123_USE_STD_HEADERS
+#if !defined(__cplusplus) || defined(__METAL_MACOS__) || defined(__CUDACC_RTC__)
 #define CXXMETHODS(_N, W, T)
 #define CXXOVERLOADS(_N, W, T)
 #define CXXMETHODS_REQUIRING_STL

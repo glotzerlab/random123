@@ -368,10 +368,6 @@ _philoxNxW_tpl(4, 2, 64, uint64_t)    /* philox4x64bijection */
 
 #if defined(__cplusplus)
 
-#if R123_USE_STD_HEADERS
-#include <stdexcept>
-#endif
-
 /** \cond HIDDEN_FROM_DOXYGEN */
 
 #define _PhiloxNxW_base_tpl(CType, KType, N, W)                         \

@@ -227,14 +227,6 @@ added to each of the *features.h files, AND to examples/ut_features.cpp.
 { /* maybe an unbalanced brace will terminate the compilation */
 #endif
 
-#ifndef R123_USE_STD_HEADERS
-#ifdef __cplusplus
-#define R123_USE_STD_HEADERS 1
-#else
-#define R123_USE_STD_HEADERS 0
-#endif
-#endif
-
 #ifndef R123_USE_CXX11
 #define R123_USE_CXX11 (__cplusplus >= 201103L)
 #endif
