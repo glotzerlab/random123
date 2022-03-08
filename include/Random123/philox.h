@@ -368,8 +368,6 @@ _philoxNxW_tpl(4, 2, 64, uint64_t)    /* philox4x64bijection */
 
 #if defined(__cplusplus)
 
-/** \cond HIDDEN_FROM_DOXYGEN */
-
 #define _PhiloxNxW_base_tpl(CType, KType, N, W)                         \
 template<unsigned int ROUNDS>                                             \
 struct Philox##N##x##W##_R{                                             \
@@ -383,7 +381,6 @@ struct Philox##N##x##W##_R{                                             \
     }                                                                   \
 };                                                                      \
 typedef Philox##N##x##W##_R<philox##N##x##W##_rounds> Philox##N##x##W; \
-/** \endcond */
 
 _PhiloxNxW_base_tpl(r123array2x32, r123array1x32, 2, 32) // Philox2x32_R<R>
 _PhiloxNxW_base_tpl(r123array4x32, r123array2x32, 4, 32) // Philox4x32_R<R>
