@@ -118,6 +118,12 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #endif // __CUDA_ARCH__
 
+#if defined(__CUDACC_RTC__)
+#ifndef UINT64_C
+#  define UINT64_C(c)   c ## UL
+#endif
+#endif
+
 #if defined(__xlC__) || defined(__ibmxl__)
 #include "xlcfeatures.h"
 #elif defined(__GNUC__)
