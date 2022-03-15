@@ -119,7 +119,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif
 
 #ifndef R123_USE_SSE4_2
-#ifdef __SSE4_2__
+#if defined(__SSE4_2__) && !defined(__HIPCC__)
 #define R123_USE_SSE4_2 1
 #else
 #define R123_USE_SSE4_2 0
@@ -127,7 +127,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #endif
 
 #ifndef R123_USE_SSE4_1
-#ifdef __SSE4_1__
+#if defined(__SSE4_1__) && !defined(__HIPCC__)
 #define R123_USE_SSE4_1 1
 #else
 #define R123_USE_SSE4_1 0
@@ -137,7 +137,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef R123_USE_SSE
 /* There's no point in trying to compile SSE code in Random123
    unless SSE2 is available. */
-#ifdef __SSE2__
+#if defined(__SSE2__) && !defined(__HIPCC__)
 #define R123_USE_SSE 1
 #else
 #define R123_USE_SSE 0
