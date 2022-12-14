@@ -130,6 +130,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "gccfeatures.h"
 #elif defined(_MSC_FULL_VER)
 #include "msvcfeatures.h"
+#else
+// Unknown host compiler, try GCC.
+#include "gccfeatures.h"
 #endif
 
 #endif
